@@ -152,16 +152,186 @@ resultados = [df['salario_anual']*0.161, df['salario_anual']*0.197,
 
 # Aplicar select sobre el DataFrame 
 df['impacto_abandono'] = np.select(condiciones, resultados, default = -99)
+print(df)
 
+### COSTE ECONÓMICO DEL ABANDONO DURANTE EL ÚLTIMO AÑO
 
+coste_ult_año = df.loc[df['abandono'] == 1]['impacto_abandono'].sum()
+print(coste_ult_año)
 
+### CUANTO CUESTA QUE LOS EMPLEADOS NO ESTÉN MOTIVADOS (IMPLICACIÓN BAJA)?
 
+coste_impl_baja = df.loc[(df['abandono'] == 1) & (df['implicacion'] == 'Baja')]['impacto_abandono'].sum()
+print(coste_impl_baja)
 
+### CUANTO DINERO SE PODRÍA AHORRAR LA EMPRESA FIDELIZANDO MEJOR A LOS EMPLEADOS?
 
+print(f"Reducir un 10% la fuga de empleados nos ahorraría un {int(coste_ult_año * 0.1)}$ al año.")
+print(f"Reducir un 20% la fuga de empleados nos ahorraría un {int(coste_ult_año * 0.2)}$ al año.")
+print(f"Reducir un 30% la fuga de empleados nos ahorraría un {int(coste_ult_año * 0.3)}$ al año.")
 
+### TRAZAR ESTRATEGIAS ASOCIADAS A INSIGHTS DE ABANDONO
 
+# Puesto con mayor tasa de abandono: representantes de ventas
+# Calcular proporción de representantes de ventas que se han ido el último año
 
+tot_repr_ventas = len(df.loc[df['puesto'] == 'Sales Representative'])
+tot_repr_ventas_abandono = len(df.loc[(df['puesto'] == 'Sales Representative') & (df['abandono'] == 1)])
+prop_abandono_ventas = tot_repr_ventas_abandono/tot_repr_ventas
+print(round(prop_abandono_ventas, 2))
 
+# Alrededor de un 40% de representantes de ventas abandonaron su puesto el último año
+
+# Calcular número de representantes de ventas que se podrían ir este año 
+tot_repr_ventas_actual = len(df.loc[(df['puesto'] == 'Sales Representative') & (df['abandono'] == 0)])
+prevision_abandono_ventas = int(tot_repr_ventas_actual*prop_abandono_ventas)
+print(prevision_abandono_ventas)
+
+# De los actuales representantes de ventas, 19 se podrían marchar durante este año
+
+# Tiene sentido aplicar un plan específico para ellos? 
+# Cuánto podría ahorrar la empresa si disminuimos la fuga un 30%?
+
+# Sobre los representantes de ventas que se podrían marchar cuántos podemos retener? (Hipótesis 30%)
+# Cuánto dinero puede suponer?
+
+reten_empleados_ventas = int(prevision_abandono_ventas*0.3)
+ahorro_reten_empleados_ventas = round(df.loc[(df['puesto'] == 'Sales Representative') & (df['abandono'] == 0),
+                                       'impacto_abandono'].sum() * prop_abandono_ventas * 0.3, 2)
+
+print(f'Podemos retener {reten_empleados_ventas} representantes de ventas, suponiendo un ahorro de {ahorro_reten_empleados_ventas}$.')
+
+# Se podrían llegar a ahorrar más de 37000$, por lo que la empresa podría invertir hasta esa cantidad en acciones para retener a representantes de ventas.
+# Dichas acciones se estarían pagando solas con la pérdida evitada.
+
+#%% CREACIÓN DE UN MODELO DE MACHINE LEARNING
+
+df_ml = df.copy()
+print(df_ml.info())
+
+### PREPARACIÓN DE DATOS PARA LA MODELIZACIÓN
+
+### Transformar variables categóricas a numéricas
+
+from sklearn.preprocessing import OneHotEncoder
+
+# Seleccionar variables categóricas
+cats = df_ml.select_dtypes('O')
+
+# Instanciar variables categóricas
+ohe = OneHotEncoder(sparse_output = False)
+
+# Entrenar con variables categóricas seleccionadas
+ohe.fit(cats)
+
+# Aplicar a variables categóricas seleccionadas
+cats_ohe = ohe.transform(cats)
+
+# Nombrar variables categóricas
+cats_ohe = pd.DataFrame(cats_ohe, columns = ohe.get_feature_names_out(input_features = cats.columns)).reset_index(drop = True)
+
+print(cats_ohe)
+
+### Juntar variables numéricas y categóricas modificadas
+
+nums = df.select_dtypes('number').reset_index(drop = True)
+
+df_ml = pd.concat([cats_ohe, nums], axis = 1)
+print(df_ml)
+ 
+#%% DISEÑO DEL MODELO BASE - REGRESIÓN LOGÍSTICA
+
+# Separar variables predictoras y target
+X = df_ml.drop(columns = 'abandono')
+y = df_ml['abandono']
+
+# Seoarar los datos de train y test
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 25)
+
+# Escalar datos antes de entrenar el modelo
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+### Creación del modelo de Regresión Logística
+from sklearn.linear_model import LogisticRegression
+
+logreg = LogisticRegression(max_iter = 500, random_state = 17, class_weight = 'balanced')
+
+# Entrenar modelo base de Regresión Logística
+logreg.fit(X_train_scaled, y_train)
+
+### Predicción y validación sobre el test
+pred_lg = logreg.predict_proba(X_test_scaled)[:, 1]
+
+### Evaluación del modelo base
+from sklearn.metrics import roc_auc_score
+
+print(f'El modelo de Regresión Logística permitió obtener un ROC-AUC score de {roc_auc_score(y_test, pred_lg): .3f}.')
+
+#%% DISEÑO DEL MODELO ALTERNATIVO - DECISION TREE CLASSIFIER
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import GridSearchCV
+
+# Creación del árbol de decisión
+
+dt = DecisionTreeClassifier(random_state = 25, class_weight = 'balanced')
+
+### FINE-TUNING DE HIPERPARÁMETROS
+
+pg = {'max_depth': [5, 10, 20], 
+      'min_samples_split': [2, 5, 10],
+      'min_samples_leaf': [1, 2, 4]}
+
+dt = GridSearchCV(estimator = dt, param_grid = pg, cv = 5, n_jobs = -1)
+
+# Entrenar el Árbol de Decisión
+
+dt = dt.fit(X_train_scaled, y_train)
+
+print(f'Los parámetros óptimos para el Árbol de Decisión son: {dt.best_params_}')
+
+### Predicción y validación sobre el test
+
+dt = dt.best_estimator_
+pred_dt = dt.predict(X_test_scaled)
+
+### Evaluar el modelo alternativo
+
+print(f'El Decision Tree Classifier permitió obtener un ROC-AUC score de {roc_auc_score(y_test, pred_dt): .3f}.')
+
+#%% ELECCIÓN DEL MODELO FINAL
+
+# Se selecciona el modelo de Regresión Logística tras haber obtenido un mayor ROC-AUC score
+
+# Evaluar el peso de cada variable en la predicción final
+
+logreg_coef = logreg.coef_[0]
+peso_vars = pd.DataFrame({'variable': X.columns, 'importancia': logreg_coef})
+peso_vars = peso_vars.reindex(peso_vars['importancia'].abs().sort_values(ascending = False).index)
+
+plt.figure(figsize= (24,18))
+plt.barh(peso_vars['variable'], peso_vars['importancia'].abs())
+plt.xlabel('Importancia')
+plt.ylabel('Variable')
+plt.title('Importancia de las variables en el modelo de Regresión Logística')
+plt.show()
+
+# Incorporación del scoring al dataframe principal
+
+df['scoring_abandono'] = logreg.predict_proba(df_ml.drop(columns = 'abandono'))[:, 1]
+print(df)
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_test, logreg.predict(X_test_scaled)))
 
 
 
