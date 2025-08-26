@@ -1,39 +1,45 @@
-[ES] **PROYECTO 1 · Predicción de Abandono de Empleados**
+[ES] 
+
+# **PROYECTO 1 · Predicción de Abandono de Empleados**
 
 🎯 El objetivo del proyecto **ahorrar costes de contratación** en una empresa del sector biotecnológico.
 
+
 Para ello, se desarrolló un modelo de Machine Learning que permite:
 
-🔍 Analizar los datos de empleados.
+- 🔍 Analizar los datos de empleados.
 
-📊 Detectar patrones asociados al abandono laboral.
+- 📊 Detectar patrones asociados al abandono laboral.
 
-🤖 Predecir de forma fiable la probabilidad de que un empleado deje la empresa.
+- 🤖 Predecir de forma fiable la probabilidad de que un empleado deje la empresa.
 
 De esta manera, la compañía puede anticiparse y reducir la rotación de personal, **optimizando recursos** y estrategias de retención.
 
 
-📂 Dataset
+
+### 📂 Dataset
 
 El dataset incluye información de los empleados como datos demográficos, puesto de trabajo, desempeño e indicadores de satisfacción. Fue utilizado para realizar análisis exploratorio y entrenar modelos predictivos.
 
 
-⚙️ Metodología
 
-📥 Carga y limpieza de datos
+### ⚙️ Metodología
 
-🔎 Análisis exploratorio (EDA)
+1. 📥 Carga y limpieza de datos
 
-⚖️ Selección y preprocesamiento de variables
+2. 🔎 Análisis exploratorio (EDA)
 
-🤖 Entrenamiento de modelos (Regresión Logística como baseline, Árbol de Decisión como alternativo)
+3. ⚖️ Selección y preprocesamiento de variables
 
-📈 Evaluación mediante métricas de precisión y error (ROC-AUC score)
+4. 🤖 Entrenamiento de modelos (Regresión Logística como baseline, Árbol de Decisión como alternativo)
 
-📝 Conclusiones e insights para la toma de decisiones en RRHH
+5. 📈 Evaluación mediante métricas de precisión y error (ROC-AUC score)
+
+6. 📝 Conclusiones e insights para la toma de decisiones en RRHH
 
 
-✅ Resultados
+
+### ✅ Resultados
 
 Los modelos predictivos lograron un rendimiento fiable al clasificar empleados con alta probabilidad de abandono.
 
@@ -42,64 +48,72 @@ La Regresión Logística funcionó como baseline sólido, mientras que los Árbo
 El proyecto demuestra cómo los enfoques basados en datos pueden apoyar las estrategias de RRHH para reducir la rotación.
 
 
-🛠️ Tecnologías Utilizadas
 
-Python 🐍
+### 🛠️ Tecnologías Utilizadas
 
-Pandas, NumPy
+- Python 🐍
 
-Matplotlib, Seaborn
+- Pandas, NumPy
 
-Scikit-learn
+- Matplotlib, Seaborn
+
+- Scikit-learn
 
 
-🚀 Cómo Explorar el Proyecto
 
-📄 El código principal está disponible en el script employee_attrition.py
+### 🚀 Cómo Explorar el Proyecto
 
-📊 Las visualizaciones y análisis se incluyen en el notebook EDA.ipynb
+- 📄 El código principal está disponible en el script employee_attrition.py
 
-🔎 Los resultados y conclusiones están resumidos en este README.md
+- 📊 Las visualizaciones y análisis se incluyen en el notebook EDA.ipynb
+
+- 🔎 Los resultados y conclusiones están resumidos en este README.md
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-[EN] **PROJECT 1 · Employee Attrition Prediction**
+[EN] 
+
+# **PROJECT 1 · Employee Attrition Prediction**
 
 🎯 The goal of this project is to **reduce hiring costs** in a biotechnology company.
 
+
 To achieve this, a Machine Learning model was developed to:
 
-🔍 Analyze employee data
+- 🔍 Analyze employee data
 
-📊 Identify patterns related to employee attrition.
+- 📊 Identify patterns related to employee attrition.
 
-🤖 Reliably predict the probability of an employee leaving the company.
+- 🤖 Reliably predict the probability of an employee leaving the company.
 
 This enables the company to anticipate staff turnover and **optimize** both **resources** and retention strategies.
 
 
-📂 Dataset
+
+### 📂 Dataset
 
 The dataset contains employee information such as demographics, job role, performance, and satisfaction indicators. It was used to perform exploratory data analysis and train predictive models.
 
 
-⚙️ Methodology
 
-📥 Data loading and cleaning
+### ⚙️ Methodology
 
-🔎 Exploratory Data Analysis (EDA)
+1. 📥 Data loading and cleaning
 
-⚖️ Feature selection and preprocessing
+2. 🔎 Exploratory Data Analysis (EDA)
 
-🤖 Model training (Logistic Regression as baseline, Decision Tree as alternative)
+3. ⚖️ Feature selection and preprocessing
 
-📈 Evaluation using accuracy and error metrics
+4. 🤖 Model training (Logistic Regression as baseline, Decision Tree as alternative)
 
-📝 Conclusions and insights for HR decision-making
+5. 📈 Evaluation using accuracy and error metrics
+
+6. 📝 Conclusions and insights for HR decision-making
 
 
-✅ Results
+
+### ✅ Results
 
 The predictive models achieved reliable performance in classifying employees with a high probability of leaving.
 
@@ -108,24 +122,26 @@ Logistic Regression served as a strong baseline, while Decision Trees provided i
 The project demonstrates how data-driven approaches can support HR strategies to reduce attrition.
 
 
-🛠️ Tech Stack
 
-Python 🐍
+### 🛠️ Tech Stack
 
-Pandas, NumPy
+- Python 🐍
 
-Matplotlib, Seaborn
+- Pandas, NumPy
 
-Scikit-learn
+- Matplotlib, Seaborn
+
+- Scikit-learn
 
 
-🚀 How to Explore the Project
 
-📄 The main code is available in the script employee_attrition.py
+### 🚀 How to Explore the Project
 
-📊 Visualizations and analysis are included in the Jupyter notebook EDA.ipynb
+- 📄 The main code is available in the script employee_attrition.py
 
-🔎 Results and conclusions are summarized in the README.md
+- 📊 Visualizations and analysis are included in the Jupyter notebook EDA.ipynb
+
+- 🔎 Results and conclusions are summarized in the README.md
 
 
 
