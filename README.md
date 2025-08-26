@@ -41,11 +41,11 @@ El dataset `AbandonoEmpleados.csv` incluye información de los empleados como da
 
 ### ✅ Resultados
 
-Los modelos predictivos lograron un rendimiento fiable al clasificar empleados con alta probabilidad de abandono.
+- Los modelos predictivos lograron un rendimiento fiable al clasificar empleados con alta probabilidad de abandono.
 
-La Regresión Logística funcionó como baseline sólido, mientras que los Árboles de Decisión aportaron interpretabilidad.
+- La Regresión Logística funcionó como baseline sólido, mientras que los Árboles de Decisión aportaron interpretabilidad.
 
-El proyecto demuestra cómo los enfoques basados en datos pueden apoyar las estrategias de RRHH para reducir la rotación.
+- El proyecto demuestra cómo los enfoques basados en datos pueden apoyar las estrategias de RRHH para reducir la rotación.
 
 
 
