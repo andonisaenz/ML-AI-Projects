@@ -41,7 +41,7 @@ El dataset `AbandonoEmpleados.csv` incluye información de los empleados como da
 
 ### ✅ Resultados
 
-- Los modelos predictivos lograron un rendimiento fiable al clasificar empleados con alta probabilidad de abandono.
+- Los modelos predictivos lograron un rendimiento fiable al clasificar empleados con alta probabilidad de abandono (ROC-AUC score de 0.82).
 
 - La Regresión Logística funcionó como baseline sólido, mientras que los Árboles de Decisión aportaron interpretabilidad.
 
@@ -115,11 +115,11 @@ The dataset `AbandonoEmpleados.csv` contains employee information such as demogr
 
 ### ✅ Results
 
-The predictive models achieved reliable performance in classifying employees with a high probability of leaving.
+- The predictive models achieved reliable performance in classifying employees with a high probability of leaving (ROC-AUC score of 0.82).
 
-Logistic Regression served as a strong baseline, while Decision Trees provided interpretability.
+- Logistic Regression served as a strong baseline, while Decision Trees provided interpretability.
 
-The project demonstrates how data-driven approaches can support HR strategies to reduce attrition.
+- The project demonstrates how data-driven approaches can support HR strategies to reduce employee turnover.
 
 
 
