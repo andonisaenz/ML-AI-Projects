@@ -63,7 +63,7 @@ El proyecto demuestra cómo los enfoques basados en datos pueden apoyar las estr
 
 ### 🚀 Cómo Explorar el Proyecto
 
-- 📄 El código principal está disponible en el script employee_attrition.py
+- 📄 El código principal está disponible en el script Proyecto Análisis Rotación Empleados.py
 
 - 📊 Las visualizaciones y análisis se incluyen en el notebook EDA.ipynb
 
@@ -137,7 +137,7 @@ The project demonstrates how data-driven approaches can support HR strategies to
 
 ### 🚀 How to Explore the Project
 
-- 📄 The main code is available in the script employee_attrition.py
+- 📄 The main code is available in the script Proyecto Análisis Rotación Empleados.py
 
 - 📊 Visualizations and analysis are included in the Jupyter notebook EDA.ipynb
 
