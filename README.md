@@ -2,9 +2,10 @@
 
 # 🤖 Proyectos de ML & AI 
 
-Bienvenido a mi portfolio de proyectos de **Machine Learning e Inteligencia Artificial**.  
-Este repositorio reúne diferentes proyectos, cada uno en su propia rama.  
-Para consultar cada proyecto, seleccionar el botón `main` en la parte superior y escoger el proyecto de interés en la lista desplegable con todas las ramas.
+Bienvenido a mi portfolio de proyectos de **Machine Learning e Inteligencia Artificial**.
+
+
+Este repositorio reúne diferentes proyectos, cada uno en su propia rama. Para consultar cada proyecto, seleccionar el botón `main` en la parte superior y escoger el proyecto de interés en la lista desplegable con todas las ramas.
 
 
 ## 📂 Proyectos
@@ -38,9 +39,10 @@ Soy un Bioestadístico apasionado por transformar datos en conocimiento útil me
 
 # 🤖 ML & AI Projects
 
-Welcome to my portfolio of **Machine Learning and Artificial Intelligence** projects.  
-This repository serves as a collection of different projects, each developed in a separate branch.  
-To view each project, click the `main` button above and select the project of interest from the dropdown list of all branches.
+Welcome to my portfolio of **Machine Learning and Artificial Intelligence** projects.
+
+
+This repository serves as a collection of different projects, each developed in a separate branch. To view each project, click the `main` button above and select the project of interest from the dropdown list of all branches.
 
 
 ## 📂 Projects
