@@ -19,7 +19,7 @@ De esta manera, la compañía puede anticiparse y reducir la rotación de person
 
 ### 📂 Dataset
 
-El dataset incluye información de los empleados como datos demográficos, puesto de trabajo, desempeño e indicadores de satisfacción. Fue utilizado para realizar análisis exploratorio y entrenar modelos predictivos.
+El dataset `AbandonoEmpleados.csv` incluye información de los empleados como datos demográficos, puesto de trabajo, desempeño e indicadores de satisfacción. Fue utilizado para realizar análisis exploratorio y entrenar modelos predictivos.
 
 
 
@@ -63,11 +63,11 @@ El proyecto demuestra cómo los enfoques basados en datos pueden apoyar las estr
 
 ### 🚀 Cómo Explorar el Proyecto
 
-- 📄 El código principal está disponible en el script Proyecto Análisis Rotación Empleados.py
+- 📄 El código principal está disponible en el script `Proyecto Análisis Rotación Empleados.py`.
 
-- 📊 Las visualizaciones y análisis se incluyen en el notebook EDA.ipynb
+- 📊 Las visualizaciones y análisis se incluyen en el notebook `EDA.ipynb`.
 
-- 🔎 Los resultados y conclusiones están resumidos en este README.md
+- 🔎 Los resultados y conclusiones están resumidos en este `README.md`.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -93,7 +93,7 @@ This enables the company to anticipate staff turnover and **optimize** both **re
 
 ### 📂 Dataset
 
-The dataset contains employee information such as demographics, job role, performance, and satisfaction indicators. It was used to perform exploratory data analysis and train predictive models.
+The dataset `AbandonoEmpleados.csv` contains employee information such as demographics, job role, performance, and satisfaction indicators. It was used to perform exploratory data analysis and train predictive models.
 
 
 
@@ -137,11 +137,11 @@ The project demonstrates how data-driven approaches can support HR strategies to
 
 ### 🚀 How to Explore the Project
 
-- 📄 The main code is available in the script Proyecto Análisis Rotación Empleados.py
+- 📄 The main code is available in the script `Proyecto Análisis Rotación Empleados.py`.
 
-- 📊 Visualizations and analysis are included in the Jupyter notebook EDA.ipynb
+- 📊 Visualizations and analysis are included in the Jupyter notebook `EDA.ipynb`.
 
-- 🔎 Results and conclusions are summarized in the README.md
+- 🔎 Results and conclusions are summarized in the `README.md`.
 
 
 
