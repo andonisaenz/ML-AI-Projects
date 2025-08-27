@@ -2,7 +2,7 @@
 
 # **PROYECTO 1 · Predicción de Abandono de Empleados**
 
-🎯 El objetivo del proyecto **ahorrar costes de contratación** en una empresa del sector biotecnológico.
+🎯 El objetivo del proyecto es **ahorrar costes de contratación** en una empresa del sector biotecnológico.
 
 
 Para ello, se desarrolló un modelo de Machine Learning que permite:
