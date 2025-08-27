@@ -10,7 +10,7 @@ Este repositorio reúne diferentes proyectos, cada uno en su propia rama. Para c
 
 ## 📂 Proyectos
 
-### 🔹 Proyecto 1: Employee Attrition Prediction
+### 🔹 Proyecto 1: Predicción de Abandono de Empleados
 
 - Predicción de abandono de empleados para reducir costes de contratación.  
 - 🛠️ Regresión Logística, Árboles de Decisión, EDA
